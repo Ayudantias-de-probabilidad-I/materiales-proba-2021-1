@@ -1,0 +1,186 @@
+---
+title: "Básicos_de_R"
+author: "Zyanya Tanahara"
+date: "9/25/2020"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Paquetes
+### Instalar paquetes
+
+Para instalar paquetes se utiliza la función *install.packages*. No hay que olvidar el uso de dobles comillas en la sintaxis.
+Se puede instalar más de un paquete al mismo tiempo.
+
+```{r instalar paquetes}
+# install.packages(c("ggplot2", "swirl"))
+# install.packages("swirl")                
+
+```
+
+En R Studio también tienen la opción de usar la pestaña Packages para seleccionar directamente el paquete que quieren instalar.
+
+
+### Cargar paquetes
+
+Usualmente tienen que cargar los paquetes para poder usarlos, esto se hace con la función library(). Notemos que en este caso la sintaxis es sin comillas
+
+```{r cargar paquetes}
+library(swirl)
+library (ggplot2)
+```
+
+
+### Paquetes útiles para instalar
+```{r paquetes útiles}
+# install.packages("swirl")
+# install.packages("knitr")
+# install.packages("rmarkdown")
+
+```
+
+## Objetos
+R tiene 5 tipos diferentes de objetos atómicos:
+
+- Caracteres  
+- Numéricos (en $\mathbb{R}$)  
+- Enteros  
+- Complejos  
+- Lógicos (True/False)  
+
+Podemos conocer la clase de un objeto usando la función class()
+
+
+### Vectores
+Contienen *objetos de la misma clase*. La excepción es una lista, que puede tener objetos de diferentes clases.
+
+Para crear un objeto de tipo vector vacío se usa la función vector(). Para crear un vector dando sus elementos se usa c(x, y, z,...). La excepción a esto son las series, se asignan directamente.
+
+```{r vectors}
+a <- c(1,2,3)
+class(a)
+b <- 1:15
+class (b)
+c <- c(0.5, 0.6) 
+class (c)
+d <- c(TRUE, FALSE) 
+class (d)
+e <- c(T, F)
+class(e)
+f <- c("a", "b", "c")
+class (f)
+g <- c(1+0i, 2+4i) 
+class(g)
+h <- vector("numeric", length = 10)
+h
+
+```
+
+#### Coerción de objetos  
+
+Cuando se enlistan diferentes tipos de objetos, R lo convierte en un vector según su denominador común.
+
+```{r}
+x <- c(1.7, "a") 
+y <- c(TRUE, 2) 
+z <- c("a", TRUE)
+```
+
+
+Ejercicio. Piensa los ejemplos anteriores para deducir su clase, luego compruébalo con la función class()
+```{r}
+#Tu código va aquí
+```
+
+## Listas
+Es un tipo muy especial de vector que permite tener elementos diferentes.
+```{r}
+x <- list(1, "a", TRUE, 1 + 4i)
+x
+```
+
+## Matrices
+Las matrices son vectores con el atributo de dimensión, el cual es un vector de dos entradas: (nrow,ncol). Un primer comando que podemos utilizar para crear matrices es la función matrix(nrow = x, ncol = y)
+
+```{r}
+m <- matrix(nrow = 10, ncol = 5)
+m
+ dim(m)
+attributes(m)
+```
+
+Las matrices se construyen por columna en R, de manera predeterminada. Es decir, después de especificar el número de columnas y filas,  la matriz se construye hacia abajo y al terminar la última fila de la primer columna, sigue con la segunda columna.
+
+Ejercicio. Crea un vector de longitud 10. Escribe matrix(x, y, nrow= ?, ncol=?) con los valores adecuados.
+```{r}
+#Tu código va aquí
+```
+
+Ejercicio. Copia el código del vector que definiste anteriormente y haz con él una matriz de 4 columnas. Repite el ejercicio con una matriz de 3 columnas
+```{r}
+#Tu código va aquí
+```
+
+Una segunda forma de crear una matriz es añadiéndole el atributo de dimensión a un vector.
+```{r}
+m <- 1:10
+dim(m) <- c(2, 5)
+```
+
+Ejercicio. ¿Cuál es la diferencia entre los dos objetos del siguiente código?
+```{r}
+x <- 1:10
+y <- 1:10
+dim(y) <- c(1,10)
+x
+y
+```
+
+Una tercera forma que tenemos para construir matrices es usando las funciones rbind() y cbind()
+```{r}
+x <- 1:10
+y <- 100:109
+cbind(x,y)
+rbind(x,y)
+```
+
+## Factores
+Se utilizan para representar variables categóricas. Por lo general no las usaremos tanto en este curso, pero es bueno que las conozcan. 
+```{r}
+x <- factor(c("hombre", "mujer", "hombre", "mujer", "hombre"))
+x
+table(x) 
+unclass(x)
+```
+
+## Data Frames
+Son un tipo especial de lista y se suelen usar en conjunción con archivos del tipo de Excel (filas y columnas de la misma longitud). **A diferencia de las matrices, los data frames pueden estar formados por datos de tipo diferente**. 
+
++ Usualmente se crean usando las funciones read.csv() o read.table()  
++ Tienen un atributo especial llamado row.names()  
++ Con la función data.matrix() se puede convertir un data frame a una matriz  
+
+```{r}
+data("PlantGrowth")
+# force(PlantGrowth) si no carga
+class(PlantGrowth$weight)
+class(PlantGrowth$group)
+
+x <- data.frame(peras = 1:4, manzanas = c(T, T, F, F))
+```
+
+Ejercicio. Si quieres repasar lo que vimos, haz los ejercicios 1, 3, 4 de swirl.  
+Ejercicio. Haz los ejercicios 6, 7 y 8 de swirl. 
+
+## Referencias
+R Programming for Data Science de Roger D. Peng  
+Se puede conseguir gratis en el siguiente enlace  
+https://leanpub.com/rprogramming
+

@@ -1,0 +1,37 @@
+---
+title: "Tarea 1- problema de programación"
+author: "Escribe tu nombre"
+date: "Fecha de entrega: Viernes 2 de Octubre"
+output:
+  
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Crea un vector de 15 números, los últimos 5 deben ser la sucesión del 1 al 5. Imprímelo.
+```{r vector}
+#Escribe aquí tu código
+```
+
+## 2. Toma el vector que creaste y construye con él una matriz con 3 renglones. Imprímela.
+```{r matrix}
+#Escribe aquí tu código
+
+```
+
+## 3. Toma el vector que creaste y construye con él un data frame con 5 renglones, que tenga un nombre en cada columna y cuya última columna sea la serie del 1 al 5. 
+```{r}
+#Escribe aquí tu código
+```
+
+## 4. Toma al vector original, construye otro vector que tenga los elementos mayores a 4 de éste e imprímelo. Debe devolverlos en el orden del vector original.
+
+```{r}
+#Escribe aquí tu código
+
+```
+
