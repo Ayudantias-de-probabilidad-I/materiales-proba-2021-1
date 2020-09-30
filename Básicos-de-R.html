@@ -1829,11 +1829,93 @@ class(PlantGrowth$weight)</code></pre>
 <p>Ejercicio. Si quieres repasar lo que vimos, haz los ejercicios 1, 3, 4 de swirl.<br />
 Ejercicio. Haz los ejercicios 6, 7 y 8 de swirl.</p>
 </div>
+<div id="nombrar" class="section level2">
+<h2>Nombrar</h2>
+<p>Una forma de añadir nombres a las matrices o data frames es con la función colnames. Ésta se utiliza para dar un vector de nombres al atributo de nombre de columnas.</p>
+<pre class="r"><code>matriz &lt;- matrix(sample(30), ncol = 6, nrow = 5)
+observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot;edad&quot;, &quot;dientes&quot;, &quot;extremidades&quot;)
+colnames(matriz) &lt;- observaciones
+matriz</code></pre>
+<pre><code>##      peso altura gr edad dientes extremidades
+## [1,]   22     15 19   16      21            8
+## [2,]   14     11  2   13      20            5
+## [3,]    9     24 18   10       6           27
+## [4,]    1     26  4   25      23            3
+## [5,]   17     30 12   29       7           28</code></pre>
+<p>Para asignar nombres a las filas se puede usar la función rownames y tiene la misma sintaxis que la anterior.<br />
+Ejercicio. Usa la función rownames para nombrar los renglones de un data.frame.</p>
+<pre class="r"><code>#Tu código va aquí.</code></pre>
+<p>Ejercicio. Buscar la ayuda de R y ver cómo se usa la función dimnames para nombrar una matriz.</p>
+<pre class="r"><code>#Crea aquí tu matriz o data frame y nombralo con la función dimnames()</code></pre>
+<p>Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer dimnames desde la definición de la matriz o data.frame.</p>
+<pre class="r"><code>#Crea aquí tu matriz o data frame y nombralo usando sólo una función; es decir, hazlo con la función matrix o la función data.frame.</code></pre>
+<p>Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer nombre usando la función Setnames.</p>
+<pre class="r"><code>#</code></pre>
+</div>
+<div id="subconjuntos" class="section level2">
+<h2>Subconjuntos</h2>
+<p>Para esta sección es importante complementar con los ejercicios de Subsetting del paquete Swirl.<br />
+Hay tres símbolos que se pueden usar para acceder a la información de un objeto. Esto es importante cuando sólo queremos ciertos renglones o columnas de una matriz o de un data frame.</p>
+<p>El primer símbolo que podemos usar es []. Regresa objetos de la misma clase que el original. Pueden extraerse varios elementos usando este símbolo. La sintaxis es Objeto[loqueextraemos].</p>
+<pre class="r"><code>#Corre el siguiente código para ver cómo se usa esta forma de tomar subconjuntos
+matriz &lt;- matrix(sample(30), ncol = 6, nrow = 5)
+observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot;edad&quot;, &quot;dientes&quot;, &quot;extremidades&quot;)
+colnames(matriz) &lt;- observaciones
+matriz</code></pre>
+<pre><code>##      peso altura gr edad dientes extremidades
+## [1,]    7     18 13   25      29           26
+## [2,]   17      3 22   15      20           11
+## [3,]   16      4 24   19       1            9
+## [4,]   12      8 21    2      28           30
+## [5,]   23      6 10   14       5           27</code></pre>
+<pre class="r"><code>matriz[2,5]</code></pre>
+<pre><code>## dientes 
+##      20</code></pre>
+<pre class="r"><code>matriz[5,2]</code></pre>
+<pre><code>## altura 
+##      6</code></pre>
+<pre class="r"><code>matriz[,5]</code></pre>
+<pre><code>## [1] 29 20  1 28  5</code></pre>
+<pre class="r"><code>matriz[2,]</code></pre>
+<pre><code>##         peso       altura           gr         edad      dientes extremidades 
+##           17            3           22           15           20           11</code></pre>
+<pre class="r"><code>#matriz[dientes] #este código dará error</code></pre>
+<p>Ejercicio. Revisa qué tipo de objeto da al tomar subconjuntos de una matriz. Haz lo mismo con un data.frame</p>
+<p>Ejercicio. Construye un vector de longitud 5 y toma los siguiente subconjuntos de él: c(1,2,3), -c(1,2,3), c(T,F,T,F,F)</p>
+<pre class="r"><code># Tu código va aquí</code></pre>
+<p>Los otros dos símbolos que se pueden usar para tomar subconjuntos son [[]] y $. El último se usa más que nada para data.frames.</p>
+<pre class="r"><code>matriz &lt;- matrix(sample(30), ncol = 6, nrow = 5)
+observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot;edad&quot;, &quot;dientes&quot;, &quot;extremidades&quot;)
+colnames(matriz) &lt;- observaciones
+data_frame &lt;- data.frame(matriz)
+data_frame</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["peso"],"name":[1],"type":["int"],"align":["right"]},{"label":["altura"],"name":[2],"type":["int"],"align":["right"]},{"label":["gr"],"name":[3],"type":["int"],"align":["right"]},{"label":["edad"],"name":[4],"type":["int"],"align":["right"]},{"label":["dientes"],"name":[5],"type":["int"],"align":["right"]},{"label":["extremidades"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"18","2":"9","3":"15","4":"26","5":"11","6":"22"},{"1":"3","2":"12","3":"5","4":"16","5":"8","6":"25"},{"1":"24","2":"13","3":"17","4":"19","5":"28","6":"20"},{"1":"30","2":"10","3":"27","4":"6","5":"21","6":"7"},{"1":"2","2":"1","3":"14","4":"4","5":"23","6":"29"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code>class(data_frame)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>Obs_dientes &lt;- data_frame$dientes
+Obs_dientes</code></pre>
+<pre><code>## [1] 11  8 28 21 23</code></pre>
+<pre class="r"><code>data_frame2 &lt;- cbind(data_frame$peso,data_frame$altura)
+colnames(data_frame2) &lt;- c(&quot;peso&quot;,&quot;tamaño&quot;)
+data_frame2</code></pre>
+<pre><code>##      peso tamaño
+## [1,]   18      9
+## [2,]    3     12
+## [3,]   24     13
+## [4,]   30     10
+## [5,]    2      1</code></pre>
+</div>
 <div id="referencias" class="section level2">
 <h2>Referencias</h2>
 <p>R Programming for Data Science de Roger D. Peng<br />
 Se puede conseguir gratis en el siguiente enlace<br />
 <a href="https://leanpub.com/rprogramming" class="uri">https://leanpub.com/rprogramming</a></p>
+<p>Para una guía completa de cómo tomar subconjuntos de objetos, pueden consultar el siguiente enlace.<br />
+<a href="http://adv-r.had.co.nz/Subsetting.html" class="uri">http://adv-r.had.co.nz/Subsetting.html</a></p>
 </div>
 
 
