@@ -1,0 +1,34 @@
+---
+title: "Tarea 2-Ejercicio de programación"
+author: "Escribe tu nombre aquí"
+date: "05/10/2020-16/10/2020"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Simula 50 tiros de una moneda justa. 
+```{r}
+#Escribe tu código aquí
+```
+
+## 2. Imprime una tabla con el número de veces que salió sol en el experimento.
+```{r}
+#Escribe tu código aquí
+```
+
+## 3. Grafica cómo va cambiando la proporción de soles tiro a tiro.
+```{r}
+#Escribe tu código aquí
+```
+
+## 4. Toma una moneda no justa. Grafica la proporción de soles que salen primero en 20 tiros y luego en 1000 tiros. Tip: si haces una función esto puede resultar más fácil.
+```{r}
+#Escribe tu código aquí
+```
+
