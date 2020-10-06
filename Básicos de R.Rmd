@@ -3,10 +3,10 @@ title: "Básicos_de_R"
 author: "Zyanya Tanahara"
 date: "9/25/2020"
 output:
-  word_document: default
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Paquetes
 ### Instalar paquetes
 
-Para instalar paquetes se utiliza la función *install.packages*. No hay que olvidar el uso de dobles comillas en la sintaxis.
+Para instalar paquetes se utiliza la función **install.packages()**. No hay que olvidar el uso de dobles comillas en la sintaxis.
 Se puede instalar más de un paquete al mismo tiempo.
 
 ```{r instalar paquetes}
@@ -30,7 +30,7 @@ En R Studio también tienen la opción de usar la pestaña Packages para selecci
 
 ### Cargar paquetes
 
-Usualmente tienen que cargar los paquetes para poder usarlos, esto se hace con la función library(). Notemos que en este caso la sintaxis es sin comillas
+Usualmente tienen que cargar los paquetes para poder usarlos, esto se hace con la función **library()**. Notemos que en este caso la sintaxis es sin comillas
 
 ```{r cargar paquetes}
 library(swirl)
@@ -61,7 +61,7 @@ Podemos conocer la clase de un objeto usando la función class()
 ### Vectores
 Contienen *objetos de la misma clase*. La excepción es una lista, que puede tener objetos de diferentes clases.
 
-Para crear un objeto de tipo vector vacío se usa la función vector(). Para crear un vector dando sus elementos se usa c(x, y, z,...). La excepción a esto son las series, se asignan directamente.
+Para crear un objeto de tipo vector vacío se usa la función **vector()**. Para crear un vector dando sus elementos se usa **c(x, y, z,...)**. La excepción a esto son las series, se asignan directamente.
 
 ```{r vectors}
 a <- c(1,2,3)
@@ -94,7 +94,7 @@ z <- c("a", TRUE)
 ```
 
 
-Ejercicio. Piensa los ejemplos anteriores para deducir su clase, luego compruébalo con la función class()
+Ejercicio. Piensa los ejemplos anteriores para deducir su clase, luego compruébalo con la función **class()**
 ```{r}
 #Tu código va aquí
 ```
@@ -107,7 +107,7 @@ x
 ```
 
 ## Matrices
-Las matrices son vectores con el atributo de dimensión, el cual es un vector de dos entradas: (nrow,ncol). Un primer comando que podemos utilizar para crear matrices es la función matrix(nrow = x, ncol = y)
+Las matrices son vectores con el atributo de dimensión, el cual es un vector de dos entradas: (nrow,ncol). Un primer comando que podemos utilizar para crear matrices es la función **matrix(nrow = x, ncol = y)**
 
 ```{r}
 m <- matrix(nrow = 10, ncol = 5)
@@ -118,7 +118,7 @@ attributes(m)
 
 Las matrices se construyen por columna en R, de manera predeterminada. Es decir, después de especificar el número de columnas y filas,  la matriz se construye hacia abajo y al terminar la última fila de la primer columna, sigue con la segunda columna.
 
-Ejercicio. Crea un vector de longitud 10. Escribe matrix(x, y, nrow= ?, ncol=?) con los valores adecuados.
+Ejercicio. Crea un vector de longitud 10. Escribe **matrix(x, y, nrow= ?, ncol=?)** con los valores adecuados.
 ```{r}
 #Tu código va aquí
 ```
@@ -143,7 +143,7 @@ x
 y
 ```
 
-Una tercera forma que tenemos para construir matrices es usando las funciones rbind() y cbind()
+Una tercera forma que tenemos para construir matrices es usando las funciones **rbind()** y **cbind()**
 ```{r}
 x <- 1:10
 y <- 100:109
@@ -180,7 +180,7 @@ Ejercicio. Si quieres repasar lo que vimos, haz los ejercicios 1, 3, 4 de swirl.
 Ejercicio. Haz los ejercicios 6, 7 y 8 de swirl. 
 
 ## Nombrar
-Una forma de añadir nombres a las matrices o data frames es con la función colnames. Ésta se utiliza para dar un vector de nombres al atributo de nombre de columnas.
+Una forma de añadir nombres a las matrices o data frames es con la función **colnames()**. Ésta se utiliza para dar un vector de nombres al atributo de nombre de columnas.
 
 ```{r}
 matriz <- matrix(sample(30), ncol = 6, nrow = 5)
@@ -191,7 +191,7 @@ matriz
 
 ```
 
-Para asignar nombres a las filas se puede usar la función rownames y tiene la misma sintaxis que la anterior.  
+Para asignar nombres a las filas se puede usar la función **rownames()** y tiene la misma sintaxis que la anterior.  
 Ejercicio. Usa la función rownames para nombrar los renglones de un data.frame.
 ```{r}
 #Tu código va aquí.
@@ -208,7 +208,7 @@ Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer dimnames desde l
 #Crea aquí tu matriz o data frame y nombralo usando sólo una función; es decir, hazlo con la función matrix o la función data.frame.
 ```
 
-Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer nombre usando la función Setnames.
+Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer nombre usando la función **setnames()**.
 ```{r}
 #
 ```
@@ -216,7 +216,7 @@ Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer nombre usando la
 Para esta sección es importante complementar con los ejercicios de Subsetting del paquete Swirl.  
 Hay tres símbolos que se pueden usar para acceder a la información de un objeto. Esto es importante cuando sólo queremos ciertos renglones o columnas de una matriz o de un data frame.
 
-El primer símbolo que podemos usar es []. Regresa objetos de la misma clase que el original. Pueden extraerse varios elementos usando este símbolo. La sintaxis es Objeto[loqueextraemos].
+El primer símbolo que podemos usar es **[]**. Regresa objetos de la misma clase que el original. Pueden extraerse varios elementos usando este símbolo. La sintaxis es Objeto[loqueextraemos].
 ```{r}
 #Corre el siguiente código para ver cómo se usa esta forma de tomar subconjuntos
 matriz <- matrix(sample(30), ncol = 6, nrow = 5)
@@ -241,7 +241,7 @@ Ejercicio. Construye un vector de longitud 5 y toma los siguiente subconjuntos d
 # Tu código va aquí
 ```
 
-Los otros dos símbolos que se pueden usar para tomar subconjuntos son [[]] y $. El último se usa más que nada para data.frames.
+Los otros dos símbolos que se pueden usar para tomar subconjuntos son **[[]]** y **$**. El último se usa más que nada para data.frames.
 ```{r}
 matriz <- matrix(sample(30), ncol = 6, nrow = 5)
 observaciones <- c("peso","altura", "gr", "edad", "dientes", "extremidades")
@@ -256,7 +256,60 @@ colnames(data_frame2) <- c("peso","tamaño")
 data_frame2
 ```
 
+## Seleccionar elementos aleatoriamente de un conjunto
+Una función que será muy importante para esta parte del curso es **sample()**. Esta la usaremos para tomar elementos aleatoriamente de un conjunto. Una primera forma de usarla es darle una lista de elementos y pedirle que tome más de ahí. Su sintaxis más simple es **sample(conjunto_de_elementos, elemntos_a_tomar)**
+```{r}
+sample(1:10, 5)
+sample(1:10, 5)
+sample(1:10, 5)
+```
+No solamente toma números, sino que podemos especificar otros tipos de datos para que nos regrese aleatoriamente elementos de ese conjunto.
+```{r}
+sample(letters, 11)
+sample (c("rojo","verde","azul"), 2)
+```
+Además se puede usar para tomar objetos con o sin repeticiones.
+```{r}
+sample(10:20) ##permutación de los elementos
+sample(1:10, replace = TRUE)
+sample (c("rojo","verde","azul"), 2, replace = TRUE)
+```
 
+
+Aparejado a la función sample usaremos la función **set.seed()**. Esta función establece una semilla para la generación de números aleatorios, por lo que nuestros resultados se vuelven reproducibles ya que cualquiera que corra el código tendrá exactamente los mismo números aleatorios.
+
+```{r}
+set.seed(1)
+sample(1:10, 5)
+sample(1:10, 5)
+set.seed(1)
+sample(1:10, 5)
+set.seed(10)
+sample(1:10, 5)
+set.seed(10)
+sample(1:10, 5)
+sample(1:10, 5)
+```
+
+
+Ejercicio. Usando la función sample, simula el experimento de tirar dos dados injustos. Para este problema debes ver los argumentos que admite sample usando **?sample**
+```{r}
+# Escribe tu código aquí
+```
+
+Ejercicio. Para complementar lo anterior, hay que hacer el ejercicio 13. Simulation de library(swirl).
+
+## Estructuras de control: if-else, for, while, repeat, next, break.
+Ejercicio. Para practicar esta parte, usar data camp: https://campus.datacamp.com/courses/intermediate-r/chapter-1-conditionals-and-control-flow?ex=1. Estoy gestionando que le den acceso premium a la clase, en unos días les aviso cómo entrar si lo consigo. Mientras tanto, sí pueden usar ese link para hacer esta parte.
+
+## Funciones
+Ejercicio. Hacer el ejercicio 9. Functions de library(swirl).  
+
+## Funciones bucle (loop)
+Ejercicio. Hacer los ejercicios de 10. lapply and sapply y 11. vapply and tapply de library(swirl)
+
+## Gráficos
+Ejercicio. Hacer el ejercicio 15. Base graphics de library(swirl).  
 
 ## Referencias
 R Programming for Data Science de Roger D. Peng  

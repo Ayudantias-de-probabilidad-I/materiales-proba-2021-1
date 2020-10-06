@@ -1644,14 +1644,14 @@ summary {
 <h2>Paquetes</h2>
 <div id="instalar-paquetes" class="section level3">
 <h3>Instalar paquetes</h3>
-<p>Para instalar paquetes se utiliza la función <em>install.packages</em>. No hay que olvidar el uso de dobles comillas en la sintaxis. Se puede instalar más de un paquete al mismo tiempo.</p>
+<p>Para instalar paquetes se utiliza la función <strong>install.packages()</strong>. No hay que olvidar el uso de dobles comillas en la sintaxis. Se puede instalar más de un paquete al mismo tiempo.</p>
 <pre class="r"><code># install.packages(c(&quot;ggplot2&quot;, &quot;swirl&quot;))
 # install.packages(&quot;swirl&quot;)                </code></pre>
 <p>En R Studio también tienen la opción de usar la pestaña Packages para seleccionar directamente el paquete que quieren instalar.</p>
 </div>
 <div id="cargar-paquetes" class="section level3">
 <h3>Cargar paquetes</h3>
-<p>Usualmente tienen que cargar los paquetes para poder usarlos, esto se hace con la función library(). Notemos que en este caso la sintaxis es sin comillas</p>
+<p>Usualmente tienen que cargar los paquetes para poder usarlos, esto se hace con la función <strong>library()</strong>. Notemos que en este caso la sintaxis es sin comillas</p>
 <pre class="r"><code>library(swirl)</code></pre>
 <pre><code>## 
 ## | Hi! Type swirl() when you are ready to begin.</code></pre>
@@ -1682,7 +1682,7 @@ summary {
 <div id="vectores" class="section level3">
 <h3>Vectores</h3>
 <p>Contienen <em>objetos de la misma clase</em>. La excepción es una lista, que puede tener objetos de diferentes clases.</p>
-<p>Para crear un objeto de tipo vector vacío se usa la función vector(). Para crear un vector dando sus elementos se usa c(x, y, z,…). La excepción a esto son las series, se asignan directamente.</p>
+<p>Para crear un objeto de tipo vector vacío se usa la función <strong>vector()</strong>. Para crear un vector dando sus elementos se usa <strong>c(x, y, z,…)</strong>. La excepción a esto son las series, se asignan directamente.</p>
 <pre class="r"><code>a &lt;- c(1,2,3)
 class(a)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -1713,7 +1713,7 @@ h</code></pre>
 <pre class="r"><code>x &lt;- c(1.7, &quot;a&quot;) 
 y &lt;- c(TRUE, 2) 
 z &lt;- c(&quot;a&quot;, TRUE)</code></pre>
-<p>Ejercicio. Piensa los ejemplos anteriores para deducir su clase, luego compruébalo con la función class()</p>
+<p>Ejercicio. Piensa los ejemplos anteriores para deducir su clase, luego compruébalo con la función <strong>class()</strong></p>
 <pre class="r"><code>#Tu código va aquí</code></pre>
 </div>
 </div>
@@ -1737,7 +1737,7 @@ x</code></pre>
 </div>
 <div id="matrices" class="section level2">
 <h2>Matrices</h2>
-<p>Las matrices son vectores con el atributo de dimensión, el cual es un vector de dos entradas: (nrow,ncol). Un primer comando que podemos utilizar para crear matrices es la función matrix(nrow = x, ncol = y)</p>
+<p>Las matrices son vectores con el atributo de dimensión, el cual es un vector de dos entradas: (nrow,ncol). Un primer comando que podemos utilizar para crear matrices es la función <strong>matrix(nrow = x, ncol = y)</strong></p>
 <pre class="r"><code>m &lt;- matrix(nrow = 10, ncol = 5)
 m</code></pre>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5]
@@ -1757,7 +1757,7 @@ m</code></pre>
 <pre><code>## $dim
 ## [1] 10  5</code></pre>
 <p>Las matrices se construyen por columna en R, de manera predeterminada. Es decir, después de especificar el número de columnas y filas, la matriz se construye hacia abajo y al terminar la última fila de la primer columna, sigue con la segunda columna.</p>
-<p>Ejercicio. Crea un vector de longitud 10. Escribe matrix(x, y, nrow= ?, ncol=?) con los valores adecuados.</p>
+<p>Ejercicio. Crea un vector de longitud 10. Escribe <strong>matrix(x, y, nrow= ?, ncol=?)</strong> con los valores adecuados.</p>
 <pre class="r"><code>#Tu código va aquí</code></pre>
 <p>Ejercicio. Copia el código del vector que definiste anteriormente y haz con él una matriz de 4 columnas. Repite el ejercicio con una matriz de 3 columnas</p>
 <pre class="r"><code>#Tu código va aquí</code></pre>
@@ -1773,7 +1773,7 @@ x</code></pre>
 <pre class="r"><code>y</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
 ## [1,]    1    2    3    4    5    6    7    8    9    10</code></pre>
-<p>Una tercera forma que tenemos para construir matrices es usando las funciones rbind() y cbind()</p>
+<p>Una tercera forma que tenemos para construir matrices es usando las funciones <strong>rbind()</strong> y <strong>cbind()</strong></p>
 <pre class="r"><code>x &lt;- 1:10
 y &lt;- 100:109
 cbind(x,y)</code></pre>
@@ -1831,59 +1831,59 @@ Ejercicio. Haz los ejercicios 6, 7 y 8 de swirl.</p>
 </div>
 <div id="nombrar" class="section level2">
 <h2>Nombrar</h2>
-<p>Una forma de añadir nombres a las matrices o data frames es con la función colnames. Ésta se utiliza para dar un vector de nombres al atributo de nombre de columnas.</p>
+<p>Una forma de añadir nombres a las matrices o data frames es con la función <strong>colnames()</strong>. Ésta se utiliza para dar un vector de nombres al atributo de nombre de columnas.</p>
 <pre class="r"><code>matriz &lt;- matrix(sample(30), ncol = 6, nrow = 5)
 observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot;edad&quot;, &quot;dientes&quot;, &quot;extremidades&quot;)
 colnames(matriz) &lt;- observaciones
 matriz</code></pre>
 <pre><code>##      peso altura gr edad dientes extremidades
-## [1,]   22     15 19   16      21            8
-## [2,]   14     11  2   13      20            5
-## [3,]    9     24 18   10       6           27
-## [4,]    1     26  4   25      23            3
-## [5,]   17     30 12   29       7           28</code></pre>
-<p>Para asignar nombres a las filas se puede usar la función rownames y tiene la misma sintaxis que la anterior.<br />
+## [1,]   21     22 28   26       6           25
+## [2,]    1     11 16   30      18           20
+## [3,]    4     10 15   29      27            5
+## [4,]   13     17 12   23       8            7
+## [5,]   19      3  9   14      24            2</code></pre>
+<p>Para asignar nombres a las filas se puede usar la función <strong>rownames()</strong> y tiene la misma sintaxis que la anterior.<br />
 Ejercicio. Usa la función rownames para nombrar los renglones de un data.frame.</p>
 <pre class="r"><code>#Tu código va aquí.</code></pre>
 <p>Ejercicio. Buscar la ayuda de R y ver cómo se usa la función dimnames para nombrar una matriz.</p>
 <pre class="r"><code>#Crea aquí tu matriz o data frame y nombralo con la función dimnames()</code></pre>
 <p>Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer dimnames desde la definición de la matriz o data.frame.</p>
 <pre class="r"><code>#Crea aquí tu matriz o data frame y nombralo usando sólo una función; es decir, hazlo con la función matrix o la función data.frame.</code></pre>
-<p>Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer nombre usando la función Setnames.</p>
+<p>Ejercicio. Buscar la ayuda de R y ver cómo se puede establecer nombre usando la función <strong>setnames()</strong>.</p>
 <pre class="r"><code>#</code></pre>
 </div>
 <div id="subconjuntos" class="section level2">
 <h2>Subconjuntos</h2>
 <p>Para esta sección es importante complementar con los ejercicios de Subsetting del paquete Swirl.<br />
 Hay tres símbolos que se pueden usar para acceder a la información de un objeto. Esto es importante cuando sólo queremos ciertos renglones o columnas de una matriz o de un data frame.</p>
-<p>El primer símbolo que podemos usar es []. Regresa objetos de la misma clase que el original. Pueden extraerse varios elementos usando este símbolo. La sintaxis es Objeto[loqueextraemos].</p>
+<p>El primer símbolo que podemos usar es <strong>[]</strong>. Regresa objetos de la misma clase que el original. Pueden extraerse varios elementos usando este símbolo. La sintaxis es Objeto[loqueextraemos].</p>
 <pre class="r"><code>#Corre el siguiente código para ver cómo se usa esta forma de tomar subconjuntos
 matriz &lt;- matrix(sample(30), ncol = 6, nrow = 5)
 observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot;edad&quot;, &quot;dientes&quot;, &quot;extremidades&quot;)
 colnames(matriz) &lt;- observaciones
 matriz</code></pre>
 <pre><code>##      peso altura gr edad dientes extremidades
-## [1,]    7     18 13   25      29           26
-## [2,]   17      3 22   15      20           11
-## [3,]   16      4 24   19       1            9
-## [4,]   12      8 21    2      28           30
-## [5,]   23      6 10   14       5           27</code></pre>
+## [1,]   17      2  9   20       4           29
+## [2,]   21     14  1    7      11           16
+## [3,]   15     19 13   30       3           10
+## [4,]   24     27 22   26      12            5
+## [5,]   28     25 18   23       8            6</code></pre>
 <pre class="r"><code>matriz[2,5]</code></pre>
 <pre><code>## dientes 
-##      20</code></pre>
+##      11</code></pre>
 <pre class="r"><code>matriz[5,2]</code></pre>
 <pre><code>## altura 
-##      6</code></pre>
+##     25</code></pre>
 <pre class="r"><code>matriz[,5]</code></pre>
-<pre><code>## [1] 29 20  1 28  5</code></pre>
+<pre><code>## [1]  4 11  3 12  8</code></pre>
 <pre class="r"><code>matriz[2,]</code></pre>
 <pre><code>##         peso       altura           gr         edad      dientes extremidades 
-##           17            3           22           15           20           11</code></pre>
+##           21           14            1            7           11           16</code></pre>
 <pre class="r"><code>#matriz[dientes] #este código dará error</code></pre>
 <p>Ejercicio. Revisa qué tipo de objeto da al tomar subconjuntos de una matriz. Haz lo mismo con un data.frame</p>
 <p>Ejercicio. Construye un vector de longitud 5 y toma los siguiente subconjuntos de él: c(1,2,3), -c(1,2,3), c(T,F,T,F,F)</p>
 <pre class="r"><code># Tu código va aquí</code></pre>
-<p>Los otros dos símbolos que se pueden usar para tomar subconjuntos son [[]] y $. El último se usa más que nada para data.frames.</p>
+<p>Los otros dos símbolos que se pueden usar para tomar subconjuntos son <strong>[[]]</strong> y <strong>$</strong>. El último se usa más que nada para data.frames.</p>
 <pre class="r"><code>matriz &lt;- matrix(sample(30), ncol = 6, nrow = 5)
 observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot;edad&quot;, &quot;dientes&quot;, &quot;extremidades&quot;)
 colnames(matriz) &lt;- observaciones
@@ -1891,23 +1891,81 @@ data_frame &lt;- data.frame(matriz)
 data_frame</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["peso"],"name":[1],"type":["int"],"align":["right"]},{"label":["altura"],"name":[2],"type":["int"],"align":["right"]},{"label":["gr"],"name":[3],"type":["int"],"align":["right"]},{"label":["edad"],"name":[4],"type":["int"],"align":["right"]},{"label":["dientes"],"name":[5],"type":["int"],"align":["right"]},{"label":["extremidades"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"18","2":"9","3":"15","4":"26","5":"11","6":"22"},{"1":"3","2":"12","3":"5","4":"16","5":"8","6":"25"},{"1":"24","2":"13","3":"17","4":"19","5":"28","6":"20"},{"1":"30","2":"10","3":"27","4":"6","5":"21","6":"7"},{"1":"2","2":"1","3":"14","4":"4","5":"23","6":"29"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["peso"],"name":[1],"type":["int"],"align":["right"]},{"label":["altura"],"name":[2],"type":["int"],"align":["right"]},{"label":["gr"],"name":[3],"type":["int"],"align":["right"]},{"label":["edad"],"name":[4],"type":["int"],"align":["right"]},{"label":["dientes"],"name":[5],"type":["int"],"align":["right"]},{"label":["extremidades"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"16","2":"3","3":"26","4":"15","5":"12","6":"8"},{"1":"27","2":"7","3":"19","4":"23","5":"30","6":"29"},{"1":"11","2":"10","3":"28","4":"6","5":"25","6":"22"},{"1":"17","2":"2","3":"20","4":"18","5":"5","6":"24"},{"1":"14","2":"13","3":"1","4":"9","5":"4","6":"21"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <pre class="r"><code>class(data_frame)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>Obs_dientes &lt;- data_frame$dientes
 Obs_dientes</code></pre>
-<pre><code>## [1] 11  8 28 21 23</code></pre>
+<pre><code>## [1] 12 30 25  5  4</code></pre>
 <pre class="r"><code>data_frame2 &lt;- cbind(data_frame$peso,data_frame$altura)
 colnames(data_frame2) &lt;- c(&quot;peso&quot;,&quot;tamaño&quot;)
 data_frame2</code></pre>
 <pre><code>##      peso tamaño
-## [1,]   18      9
-## [2,]    3     12
-## [3,]   24     13
-## [4,]   30     10
-## [5,]    2      1</code></pre>
+## [1,]   16      3
+## [2,]   27      7
+## [3,]   11     10
+## [4,]   17      2
+## [5,]   14     13</code></pre>
+</div>
+<div id="seleccionar-elementos-aleatoriamente-de-un-conjunto" class="section level2">
+<h2>Seleccionar elementos aleatoriamente de un conjunto</h2>
+<p>Una función que será muy importante para esta parte del curso es <strong>sample()</strong>. Esta la usaremos para tomar elementos aleatoriamente de un conjunto. Una primera forma de usarla es darle una lista de elementos y pedirle que tome más de ahí. Su sintaxis más simple es <strong>sample(conjunto_de_elementos, elemntos_a_tomar)</strong></p>
+<pre class="r"><code>sample(1:10, 5)</code></pre>
+<pre><code>## [1] 8 1 7 4 3</code></pre>
+<pre class="r"><code>sample(1:10, 5)</code></pre>
+<pre><code>## [1] 1 9 7 2 3</code></pre>
+<pre class="r"><code>sample(1:10, 5)</code></pre>
+<pre><code>## [1] 10  9  1  6  4</code></pre>
+<p>No solamente toma números, sino que podemos especificar otros tipos de datos para que nos regrese aleatoriamente elementos de ese conjunto.</p>
+<pre class="r"><code>sample(letters, 11)</code></pre>
+<pre><code>##  [1] &quot;b&quot; &quot;t&quot; &quot;m&quot; &quot;e&quot; &quot;c&quot; &quot;l&quot; &quot;v&quot; &quot;j&quot; &quot;x&quot; &quot;i&quot; &quot;f&quot;</code></pre>
+<pre class="r"><code>sample (c(&quot;rojo&quot;,&quot;verde&quot;,&quot;azul&quot;), 2)</code></pre>
+<pre><code>## [1] &quot;verde&quot; &quot;rojo&quot;</code></pre>
+<p>Además se puede usar para tomar objetos con o sin repeticiones.</p>
+<pre class="r"><code>sample(10:20) ##permutación de los elementos</code></pre>
+<pre><code>##  [1] 13 14 19 16 10 18 12 15 11 20 17</code></pre>
+<pre class="r"><code>sample(1:10, replace = TRUE)</code></pre>
+<pre><code>##  [1]  4  2  5  1 10  8  7  3  7  5</code></pre>
+<pre class="r"><code>sample (c(&quot;rojo&quot;,&quot;verde&quot;,&quot;azul&quot;), 2, replace = TRUE)</code></pre>
+<pre><code>## [1] &quot;verde&quot; &quot;verde&quot;</code></pre>
+<p>Aparejado a la función sample usaremos la función <strong>set.seed()</strong>. Esta función establece una semilla para la generación de números aleatorios, por lo que nuestros resultados se vuelven reproducibles ya que cualquiera que corra el código tendrá exactamente los mismo números aleatorios.</p>
+<pre class="r"><code>set.seed(1)
+sample(1:10, 5)</code></pre>
+<pre><code>## [1] 9 4 7 1 2</code></pre>
+<pre class="r"><code>sample(1:10, 5)</code></pre>
+<pre><code>## [1] 7 2 3 8 1</code></pre>
+<pre class="r"><code>set.seed(1)
+sample(1:10, 5)</code></pre>
+<pre><code>## [1] 9 4 7 1 2</code></pre>
+<pre class="r"><code>set.seed(10)
+sample(1:10, 5)</code></pre>
+<pre><code>## [1] 9 7 8 6 3</code></pre>
+<pre class="r"><code>set.seed(10)
+sample(1:10, 5)</code></pre>
+<pre><code>## [1] 9 7 8 6 3</code></pre>
+<pre class="r"><code>sample(1:10, 5)</code></pre>
+<pre><code>## [1]  8  7  2 10  5</code></pre>
+<p>Ejercicio. Usando la función sample, simula el experimento de tirar dos dados injustos. Para este problema debes ver los argumentos que admite sample usando <strong>?sample</strong></p>
+<pre class="r"><code># Escribe tu código aquí</code></pre>
+<p>Ejercicio. Para complementar lo anterior, hay que hacer el ejercicio 13. Simulation de library(swirl).</p>
+</div>
+<div id="estructuras-de-control-if-else-for-while-repeat-next-break." class="section level2">
+<h2>Estructuras de control: if-else, for, while, repeat, next, break.</h2>
+<p>Ejercicio. Para practicar esta parte, usar data camp: <a href="https://campus.datacamp.com/courses/intermediate-r/chapter-1-conditionals-and-control-flow?ex=1" class="uri">https://campus.datacamp.com/courses/intermediate-r/chapter-1-conditionals-and-control-flow?ex=1</a>.</p>
+</div>
+<div id="funciones" class="section level2">
+<h2>Funciones</h2>
+<p>Ejercicio. Hacer el ejercicio 9. Functions de library(swirl).</p>
+</div>
+<div id="funciones-bucle-loop" class="section level2">
+<h2>Funciones bucle (loop)</h2>
+<p>Ejercicio. Hacer los ejercicios de 10. lapply and sapply y 11. vapply and tapply de library(swirl)</p>
+</div>
+<div id="gráficos" class="section level2">
+<h2>Gráficos</h2>
+<p>Ejercicio. Hacer el ejercicio 15. Base graphics de library(swirl).</p>
 </div>
 <div id="referencias" class="section level2">
 <h2>Referencias</h2>
