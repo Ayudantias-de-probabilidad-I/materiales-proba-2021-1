@@ -1,0 +1,57 @@
+---
+title: "Tarea 1- problema de programación"
+author: "Zyanya Tanahara"
+date: "9/20/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+
+## 1. Crea un vector de 15 números, los últimos 5 deben ser la sucesión del 1 al 5. Imprímelo.
+
+```r
+vect <- c(1:10,1:5)
+vect
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10  1  2  3  4  5
+```
+
+## 2. Toma el vector que creaste y construye con él una matriz con 3 renglones. Imprímela.
+
+```r
+matriz1 <- matrix(vect, nrow = 3)
+matriz1
+```
+
+```
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    4    7   10    3
+## [2,]    2    5    8    1    4
+## [3,]    3    6    9    2    5
+```
+
+## 3. Toma el vector que creaste y construye con él un data frame con 5 renglones, que tenga un nombre en cada columna y cuya última columna sea la serie del 1 al 5. 
+
+```r
+matriz2 <- matrix(vect, nrow = 5)
+data <- data.frame("Nombre 1" = matriz2[,1], "Nombre 2" = matriz2[,2],
+                   "Nombre 3" = matriz2[,3])
+```
+
+## 4. Toma al vector original, construye otro vector que tenga los elementos mayores a 4 de éste e imprímelo. Debe devolverlos en el orden del vector original.
+
+
+```r
+m4 <- vect >4
+mayora4 <- vect[m4]
+mayora4
+```
+
+```
+## [1]  5  6  7  8  9 10  5
+```
+
