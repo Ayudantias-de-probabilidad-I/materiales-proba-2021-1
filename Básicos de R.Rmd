@@ -257,7 +257,7 @@ data_frame2
 ```
 
 ## Seleccionar elementos aleatoriamente de un conjunto
-Una función que será muy importante para esta parte del curso es **sample()**. Esta la usaremos para tomar elementos aleatoriamente de un conjunto. Una primera forma de usarla es darle una lista de elementos y pedirle que tome más de ahí. Su sintaxis más simple es **sample(conjunto_de_elementos, elemntos_a_tomar)**
+Una función que será muy importante para esta parte del curso es **sample()**. Esta la usaremos para tomar elementos aleatoriamente de un conjunto. Una primera forma de usarla es darle una lista de elementos y pedirle que tome más de ahí. Su sintaxis más simple es **sample(conjunto_de_elementos, elementos_a_tomar)**
 ```{r}
 sample(1:10, 5)
 sample(1:10, 5)
@@ -300,16 +300,19 @@ Ejercicio. Usando la función sample, simula el experimento de tirar dos dados i
 Ejercicio. Para complementar lo anterior, hay que hacer el ejercicio 13. Simulation de library(swirl).
 
 ## Estructuras de control: if-else, for, while, repeat, next, break.
-Ejercicio. Para practicar esta parte, usar data camp: https://campus.datacamp.com/courses/intermediate-r/chapter-1-conditionals-and-control-flow?ex=1. Estoy gestionando que le den acceso premium a la clase, en unos días les aviso cómo entrar si lo consigo. Mientras tanto, sí pueden usar ese link para hacer esta parte.
+Ejercicio. Sumarse al link de data camp que les dejé en el classroom. Resolver las partes de Loops y Conditionals and Control Flow.
 
 ## Funciones
 Ejercicio. Hacer el ejercicio 9. Functions de library(swirl).  
+Ejercicio. Sumarse al link de data camp que les dejé en el classroom. Resolver la parte de Functions.
 
 ## Funciones bucle (loop)
-Ejercicio. Hacer los ejercicios de 10. lapply and sapply y 11. vapply and tapply de library(swirl)
+Ejercicio. Hacer los ejercicios de 10. lapply and sapply y 11. vapply and tapply de library(swirl).  
+Ejercicio. Sumarse al link de data camp que les dejé en el classroom. Resolver la parte de The apply family.  
 
 ## Gráficos
-Ejercicio. Hacer el ejercicio 15. Base graphics de library(swirl).  
+Ejercicio. Hacer el ejercicio 15. Base graphics de library(swirl).    
+Ejercicio. Buscar la documentación de la función **plot**.
 
 ## Referencias
 R Programming for Data Science de Roger D. Peng  

@@ -1837,11 +1837,11 @@ observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot
 colnames(matriz) &lt;- observaciones
 matriz</code></pre>
 <pre><code>##      peso altura gr edad dientes extremidades
-## [1,]   21     22 28   26       6           25
-## [2,]    1     11 16   30      18           20
-## [3,]    4     10 15   29      27            5
-## [4,]   13     17 12   23       8            7
-## [5,]   19      3  9   14      24            2</code></pre>
+## [1,]   19      4 17   20      22            8
+## [2,]    7     16  6    1       2           30
+## [3,]   26      5 28   27      21           11
+## [4,]   12     29 14    9      25           24
+## [5,]   13     18 23   15      10            3</code></pre>
 <p>Para asignar nombres a las filas se puede usar la función <strong>rownames()</strong> y tiene la misma sintaxis que la anterior.<br />
 Ejercicio. Usa la función rownames para nombrar los renglones de un data.frame.</p>
 <pre class="r"><code>#Tu código va aquí.</code></pre>
@@ -1863,22 +1863,22 @@ observaciones &lt;- c(&quot;peso&quot;,&quot;altura&quot;, &quot;gr&quot;, &quot
 colnames(matriz) &lt;- observaciones
 matriz</code></pre>
 <pre><code>##      peso altura gr edad dientes extremidades
-## [1,]   17      2  9   20       4           29
-## [2,]   21     14  1    7      11           16
-## [3,]   15     19 13   30       3           10
-## [4,]   24     27 22   26      12            5
-## [5,]   28     25 18   23       8            6</code></pre>
+## [1,]    8      4 18   30      22           12
+## [2,]    1      6 27   26       3           15
+## [3,]   21     24  9   25      11           20
+## [4,]   28     29 13   19       5           17
+## [5,]    2      7 10   23      16           14</code></pre>
 <pre class="r"><code>matriz[2,5]</code></pre>
 <pre><code>## dientes 
-##      11</code></pre>
+##       3</code></pre>
 <pre class="r"><code>matriz[5,2]</code></pre>
 <pre><code>## altura 
-##     25</code></pre>
+##      7</code></pre>
 <pre class="r"><code>matriz[,5]</code></pre>
-<pre><code>## [1]  4 11  3 12  8</code></pre>
+<pre><code>## [1] 22  3 11  5 16</code></pre>
 <pre class="r"><code>matriz[2,]</code></pre>
 <pre><code>##         peso       altura           gr         edad      dientes extremidades 
-##           21           14            1            7           11           16</code></pre>
+##            1            6           27           26            3           15</code></pre>
 <pre class="r"><code>#matriz[dientes] #este código dará error</code></pre>
 <p>Ejercicio. Revisa qué tipo de objeto da al tomar subconjuntos de una matriz. Haz lo mismo con un data.frame</p>
 <p>Ejercicio. Construye un vector de longitud 5 y toma los siguiente subconjuntos de él: c(1,2,3), -c(1,2,3), c(T,F,T,F,F)</p>
@@ -1891,45 +1891,45 @@ data_frame &lt;- data.frame(matriz)
 data_frame</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["peso"],"name":[1],"type":["int"],"align":["right"]},{"label":["altura"],"name":[2],"type":["int"],"align":["right"]},{"label":["gr"],"name":[3],"type":["int"],"align":["right"]},{"label":["edad"],"name":[4],"type":["int"],"align":["right"]},{"label":["dientes"],"name":[5],"type":["int"],"align":["right"]},{"label":["extremidades"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"16","2":"3","3":"26","4":"15","5":"12","6":"8"},{"1":"27","2":"7","3":"19","4":"23","5":"30","6":"29"},{"1":"11","2":"10","3":"28","4":"6","5":"25","6":"22"},{"1":"17","2":"2","3":"20","4":"18","5":"5","6":"24"},{"1":"14","2":"13","3":"1","4":"9","5":"4","6":"21"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["peso"],"name":[1],"type":["int"],"align":["right"]},{"label":["altura"],"name":[2],"type":["int"],"align":["right"]},{"label":["gr"],"name":[3],"type":["int"],"align":["right"]},{"label":["edad"],"name":[4],"type":["int"],"align":["right"]},{"label":["dientes"],"name":[5],"type":["int"],"align":["right"]},{"label":["extremidades"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"28","2":"27","3":"2","4":"23","5":"12","6":"5"},{"1":"16","2":"9","3":"15","4":"14","5":"17","6":"24"},{"1":"26","2":"6","3":"20","4":"10","5":"1","6":"21"},{"1":"13","2":"19","3":"3","4":"4","5":"30","6":"7"},{"1":"8","2":"11","3":"18","4":"25","5":"29","6":"22"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <pre class="r"><code>class(data_frame)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>Obs_dientes &lt;- data_frame$dientes
 Obs_dientes</code></pre>
-<pre><code>## [1] 12 30 25  5  4</code></pre>
+<pre><code>## [1] 12 17  1 30 29</code></pre>
 <pre class="r"><code>data_frame2 &lt;- cbind(data_frame$peso,data_frame$altura)
 colnames(data_frame2) &lt;- c(&quot;peso&quot;,&quot;tamaño&quot;)
 data_frame2</code></pre>
 <pre><code>##      peso tamaño
-## [1,]   16      3
-## [2,]   27      7
-## [3,]   11     10
-## [4,]   17      2
-## [5,]   14     13</code></pre>
+## [1,]   28     27
+## [2,]   16      9
+## [3,]   26      6
+## [4,]   13     19
+## [5,]    8     11</code></pre>
 </div>
 <div id="seleccionar-elementos-aleatoriamente-de-un-conjunto" class="section level2">
 <h2>Seleccionar elementos aleatoriamente de un conjunto</h2>
-<p>Una función que será muy importante para esta parte del curso es <strong>sample()</strong>. Esta la usaremos para tomar elementos aleatoriamente de un conjunto. Una primera forma de usarla es darle una lista de elementos y pedirle que tome más de ahí. Su sintaxis más simple es <strong>sample(conjunto_de_elementos, elemntos_a_tomar)</strong></p>
+<p>Una función que será muy importante para esta parte del curso es <strong>sample()</strong>. Esta la usaremos para tomar elementos aleatoriamente de un conjunto. Una primera forma de usarla es darle una lista de elementos y pedirle que tome más de ahí. Su sintaxis más simple es <strong>sample(conjunto_de_elementos, elementos_a_tomar)</strong></p>
 <pre class="r"><code>sample(1:10, 5)</code></pre>
-<pre><code>## [1] 8 1 7 4 3</code></pre>
+<pre><code>## [1] 4 6 5 2 9</code></pre>
 <pre class="r"><code>sample(1:10, 5)</code></pre>
-<pre><code>## [1] 1 9 7 2 3</code></pre>
+<pre><code>## [1] 4 3 7 2 8</code></pre>
 <pre class="r"><code>sample(1:10, 5)</code></pre>
-<pre><code>## [1] 10  9  1  6  4</code></pre>
+<pre><code>## [1]  6  1 10  2  9</code></pre>
 <p>No solamente toma números, sino que podemos especificar otros tipos de datos para que nos regrese aleatoriamente elementos de ese conjunto.</p>
 <pre class="r"><code>sample(letters, 11)</code></pre>
-<pre><code>##  [1] &quot;b&quot; &quot;t&quot; &quot;m&quot; &quot;e&quot; &quot;c&quot; &quot;l&quot; &quot;v&quot; &quot;j&quot; &quot;x&quot; &quot;i&quot; &quot;f&quot;</code></pre>
+<pre><code>##  [1] &quot;k&quot; &quot;v&quot; &quot;j&quot; &quot;d&quot; &quot;r&quot; &quot;w&quot; &quot;s&quot; &quot;g&quot; &quot;q&quot; &quot;l&quot; &quot;z&quot;</code></pre>
 <pre class="r"><code>sample (c(&quot;rojo&quot;,&quot;verde&quot;,&quot;azul&quot;), 2)</code></pre>
-<pre><code>## [1] &quot;verde&quot; &quot;rojo&quot;</code></pre>
+<pre><code>## [1] &quot;rojo&quot;  &quot;verde&quot;</code></pre>
 <p>Además se puede usar para tomar objetos con o sin repeticiones.</p>
 <pre class="r"><code>sample(10:20) ##permutación de los elementos</code></pre>
-<pre><code>##  [1] 13 14 19 16 10 18 12 15 11 20 17</code></pre>
+<pre><code>##  [1] 20 14 12 10 11 18 13 15 17 19 16</code></pre>
 <pre class="r"><code>sample(1:10, replace = TRUE)</code></pre>
-<pre><code>##  [1]  4  2  5  1 10  8  7  3  7  5</code></pre>
+<pre><code>##  [1]  5 10 10  3  6  6  5  3  7  8</code></pre>
 <pre class="r"><code>sample (c(&quot;rojo&quot;,&quot;verde&quot;,&quot;azul&quot;), 2, replace = TRUE)</code></pre>
-<pre><code>## [1] &quot;verde&quot; &quot;verde&quot;</code></pre>
+<pre><code>## [1] &quot;rojo&quot; &quot;azul&quot;</code></pre>
 <p>Aparejado a la función sample usaremos la función <strong>set.seed()</strong>. Esta función establece una semilla para la generación de números aleatorios, por lo que nuestros resultados se vuelven reproducibles ya que cualquiera que corra el código tendrá exactamente los mismo números aleatorios.</p>
 <pre class="r"><code>set.seed(1)
 sample(1:10, 5)</code></pre>
@@ -1953,19 +1953,22 @@ sample(1:10, 5)</code></pre>
 </div>
 <div id="estructuras-de-control-if-else-for-while-repeat-next-break." class="section level2">
 <h2>Estructuras de control: if-else, for, while, repeat, next, break.</h2>
-<p>Ejercicio. Para practicar esta parte, usar data camp: <a href="https://campus.datacamp.com/courses/intermediate-r/chapter-1-conditionals-and-control-flow?ex=1" class="uri">https://campus.datacamp.com/courses/intermediate-r/chapter-1-conditionals-and-control-flow?ex=1</a>.</p>
+<p>Ejercicio. Sumarse al link de data camp que les dejé en el classroom. Resolver las partes de Loops y Conditionals and Control Flow.</p>
 </div>
 <div id="funciones" class="section level2">
 <h2>Funciones</h2>
-<p>Ejercicio. Hacer el ejercicio 9. Functions de library(swirl).</p>
+<p>Ejercicio. Hacer el ejercicio 9. Functions de library(swirl).<br />
+Ejercicio. Sumarse al link de data camp que les dejé en el classroom. Resolver la parte de Functions.</p>
 </div>
 <div id="funciones-bucle-loop" class="section level2">
 <h2>Funciones bucle (loop)</h2>
-<p>Ejercicio. Hacer los ejercicios de 10. lapply and sapply y 11. vapply and tapply de library(swirl)</p>
+<p>Ejercicio. Hacer los ejercicios de 10. lapply and sapply y 11. vapply and tapply de library(swirl).<br />
+Ejercicio. Sumarse al link de data camp que les dejé en el classroom. Resolver la parte de The apply family.</p>
 </div>
 <div id="gráficos" class="section level2">
 <h2>Gráficos</h2>
-<p>Ejercicio. Hacer el ejercicio 15. Base graphics de library(swirl).</p>
+<p>Ejercicio. Hacer el ejercicio 15. Base graphics de library(swirl).<br />
+Ejercicio. Buscar la documentación de la función <strong>plot</strong>.</p>
 </div>
 <div id="referencias" class="section level2">
 <h2>Referencias</h2>
