@@ -44,8 +44,14 @@ sacar_carta <- function(num_rep){
     n2_a <- carta_boca_arriba == "n2" 
     n3_a <- carta_boca_arriba == "n3"
     negra_arriba <- as.logical( n1_a+ n2_a+ n3_a)
-  veces_blanco_abajo <- sum(carta_boca_arriba[negra_arriba] == "n3")
-  veces_blanco_abajo/length(carta_boca_arriba[negra_arriba])
+    if(sum(negra_arriba) == 0){
+      0
+    }else{
+      veces_blanco_abajo <- sum(carta_boca_arriba[negra_arriba] == "n3")
+      veces_blanco_abajo/length(carta_boca_arriba[negra_arriba]) 
+    }
 }
-
-
+sacar_carta(1000)
+experimento_prop <- sapply(1:1000, sacar_carta)
+plot(1:1000, experimento_prop, xlab = "Veces que se hace el experimento",
+     ylab = "Proporción de veces que sale cara inferior blanca")
