@@ -1,0 +1,78 @@
+---
+title: "Tarea 2-Ejercicio de programación"
+author: "Escribe tu nombre aquí"
+date: "05/10/2020-16/10/2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Simula 50 tiros de una moneda justa. 
+```{r}
+set.seed(1)
+tiros <- sample (0:1,50, replace = TRUE)
+tiros
+```
+
+## 2. Imprime un data frame con el número de veces que salieron sol y águila en el experimento, además debe indicar la proporción de veces que salió sol.
+```{r}
+Resultados <- data.frame("Número de soles"= sum(tiros), 
+                         "Número de águilas"= 50-sum(tiros), 
+                         "Proporción de soles" = sum(tiros)/50 )
+Resultados
+```
+
+## 3. Grafica cómo va cambiando la proporción de soles tiro a tiro.
+```{r}
+ tiro_por_tiro <- data.frame("Tiro" = vector("integer"), 
+                             "Número de soles"= vector(), 
+                             "Proporción de soles" = vector() ) 
+for (i in 1:50) {
+  tiro_actual <- tiros[1:i]
+  datos_nuevos <- data.frame("Tiro" = i, 
+                           "Número de soles"= sum(tiro_actual), 
+                           "Proporción de soles" = 
+                             sum(tiro_actual)/ i)
+  tiro_por_tiro <- rbind(tiro_por_tiro, datos_nuevos)
+}
+tiro_por_tiro
+plot(tiro_por_tiro[,1], 
+     tiro_por_tiro[,3], 
+     xlab = "Tiros realizados", 
+     ylab = "Proporción de soles")
+```
+
+
+## 4. Toma una moneda no justa. Grafica la proporción de soles que salen primero en 20 tiros y luego en 1000 tiros. Tip: si haces una función esto puede resultar más fácil.
+```{r}
+Prop_soles <- function(num_tiros, proba = .5){
+  set.seed(1)
+  tiros <- sample (0:1,num_tiros, replace = TRUE, 
+                   prob = c(1-proba, proba))
+  tiro_por_tiro <- data.frame("Tiro" = vector("integer"), 
+                               "Número de soles"= vector(),
+                               "Proporción de soles" = vector() ) 
+   for (i in 1:num_tiros) {
+    tiro_actual <- tiros[1:i]
+    datos_nuevos <- data.frame("Tiro" = i, "Número de soles"=   
+                               sum(tiro_actual), "Proporción de 
+                             soles" = sum(tiro_actual)/ i)
+    tiro_por_tiro <- rbind(tiro_por_tiro, datos_nuevos)
+  }
+  tiro_por_tiro
+  plot(tiro_por_tiro[,1], tiro_por_tiro[,3], 
+     xlab = "Tiros realizados", 
+     ylab = "Proporción de soles")
+}
+
+Prop_soles(20, .7)
+Prop_soles(1000, .7)
+  
+
+```
+

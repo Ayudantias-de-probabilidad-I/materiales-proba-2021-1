@@ -1,0 +1,33 @@
+---
+title: "Problema del zodiaco"
+author: "Zyanya Tanahara"
+date: "10/12/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Personas necesarias para que la probabilidad sea al menos 1/2
+
+En clase se vio ya que se puede utilizar la función pbirthday y modificar el número de clases para obtener lo buscado.
+
+```{r cars}
+
+proba_zodiaco <- vector()
+for (n in 1:12){
+  proba_zodiaco <- c(proba_zodiaco,pbirthday(n, classes = 12))
+}
+proba_zodiaco
+```
+
+## Gráfica
+
+
+```{r pressure, echo=FALSE}
+plot(1:12, proba_zodiaco)
+```
+
