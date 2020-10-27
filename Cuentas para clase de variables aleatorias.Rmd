@@ -1,0 +1,95 @@
+---
+title: "Cuentas para clase de variables aleatorias"
+author: "Zyanya Tanahara"
+date: "10/21/2020"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Ejercicio 3.
+```{r}
+proba_ganar_max_1 <- choose(10,0)*(.9^10)+
+  choose(10,1)*(.9^9)*(.1)
+```
+De esta forma, la probabilidad de ganar a lo más un juego es `r proba_ganar_max_1`. 
+
+## Ejercicio 4.  
+Haremos una función que nos permita saber cuál es la probabilidad de $(X,Y)$, donde $X$ denota lo que sucedió en la primera cita y $Y$ lo que sucedió en la segunda, ambos en el conjunto $\{N, E, D\}$. $N$ significa que no vendió nada, $E$ que vendió el producto estándar y $D$ que logró vender el producto deluxe.
+```{r}
+proba_venta <- function(cita1,cita2){
+  if (cita1 == "N") {
+    p1 <- .7
+  }else{
+    p1 <- .3*1/2
+  }
+    if (cita2 == "N") {
+    p2 <- .4
+  }else{
+    p2 <- .6*1/2
+  }
+  p1*p2
+}
+funcion_masa <- data.frame("G_es_0"= proba_venta ("N","N"), 
+                           "G_es_500"= proba_venta("N","E")+proba_venta("E","N"),
+                           "G_es_1000"= proba_venta("E","E")+proba_venta("N","D")
+                           +proba_venta("D","N"),
+                           "G_es_1500"= proba_venta("E","D")+proba_venta("D","E"), 
+                           "G_es_2000"= proba_venta ("D","D"))
+funcion_masa
+sum(funcion_masa)
+```
+Notemos que con esto terminamos de calcular la función de masa para la variable aleatoria G, que denota las ganancias. La tabla muestra $P(G=i)$ cuando $i \in \{0, 500, 1000, 2000\}$
+
+## Ejercicio 5.
+```{r}
+proba_4_mas <- choose(5,4)*((1/3)^4)*(2/3)+choose(5,5)*((1/3)^5)
+
+```
+Concluimos que la probabilidad de sacar 4 o más respuestas correctas respondiendo al azar es `r proba_4_mas`.
+
+## Ejercicio 6.
+```{r}
+vector_probabilidad<- vector()
+for (i in 9:4){
+  vector_probabilidad <- c(vector_probabilidad,
+                           choose(i,4)*factorial(5)*factorial(5)/factorial(10))
+}
+
+probabilidades <- data.frame("X_es_1" = vector_probabilidad[1],
+  "X_es_2" = vector_probabilidad[2],
+  "X_es_3" = vector_probabilidad[3],
+  "X_es_4" = vector_probabilidad[4],
+  "X_es_5" = vector_probabilidad[5],
+  "X_es_6" = vector_probabilidad[6])
+probabilidades
+suma_probs <- sum(probabilidades)
+
+
+```
+Teniendo que la suma de las probabilidades es `r suma_probs` verificamos que no nos hayamos equivocado.
+
+## Ejercicio 7.
+Cuando se tienen 5 examinadores
+```{r 5 examin}
+suma <- 0
+for (i in 3:5){
+  suma <- suma + 1/3*choose(5,i)*((.8)^i)*((.2)^(5-i))+
+    2/3*choose(5,i)*((.4)^i)*((.6)^(5-i))
+}
+```
+
+Cuando se tienen 3 examinadores
+```{r 3 examin}
+suma2 <- 0
+for (i in 2:3){
+  suma2 <- suma2 + 1/3*choose(3,i)*((.8)^i)*((.2)^(3-i))+
+    2/3*choose(3,i)*((.4)^i)*((.6)^(3-i))
+}
+```
+
+Como la probabilidad de pasar con tres examinadores es `r suma2` y es mayor a la probabilidad de pasar con cinco examinadores, `r suma`, conviene más tener 3 examinadores.
