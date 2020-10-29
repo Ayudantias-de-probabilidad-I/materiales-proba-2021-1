@@ -43,7 +43,7 @@ funcion_masa <- data.frame("G_es_0"= proba_venta ("N","N"),
 funcion_masa
 sum(funcion_masa)
 ```
-Notemos que con esto terminamos de calcular la función de masa para la variable aleatoria G, que denota las ganancias. La tabla muestra $P(G=i)$ cuando $i \in \{0, 500, 1000, 2000\}$
+Notemos que con esto terminamos de calcular la función de masa para la variable aleatoria G, que denota las ganancias. La tabla muestra $P(G=i)$ cuando $i \in \{0, 500, 1000, 1500, 2000\}$
 
 ## Ejercicio 5.
 ```{r}
@@ -52,7 +52,7 @@ proba_4_mas <- choose(5,4)*((1/3)^4)*(2/3)+choose(5,5)*((1/3)^5)
 ```
 Concluimos que la probabilidad de sacar 4 o más respuestas correctas respondiendo al azar es `r proba_4_mas`.
 
-## Ejercicio 6.
+## Ejercicio 9.
 ```{r}
 vector_probabilidad<- vector()
 for (i in 9:4){
@@ -73,7 +73,7 @@ suma_probs <- sum(probabilidades)
 ```
 Teniendo que la suma de las probabilidades es `r suma_probs` verificamos que no nos hayamos equivocado.
 
-## Ejercicio 7.
+## Ejercicio 10.
 Cuando se tienen 5 examinadores
 ```{r 5 examin}
 suma <- 0
