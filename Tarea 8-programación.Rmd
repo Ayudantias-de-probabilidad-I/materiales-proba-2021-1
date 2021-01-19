@@ -1,0 +1,34 @@
+---
+title: "Tarea 8- programación"
+author: "Nombre del estudiante"
+date: "1/29/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Problema 1
+Crea una función que te devuelva el promedio de $n$ variables aleatorias independientes $Poisson(\lambda)$. Es decir, la función debe tomar por parámetros a $n$ y a $lambda$. Escoge un sólo parámetro $lambda$ y usa la función para $5, 10, 50, 100,1000$ observaciones.
+
+```{r función promedio poisson}
+# Escribe aquí tu respuesta
+```
+
+## Problema 2
+Crea una función que te devuelva un vector con el promedio de $r$ muestras de $n$ variables aleatorias $Poisson(\lambda)$. Observa que la función debe admitir tres parámetros. Evalúa la función con la misma $lambda$ que en el problema anterior, $r=6$, y para los $n$ anteriores, es decir, $n \in \{5,10,50,100\}$. Escribe qué obsevas en las muestras y justifica tu respuesta.
+```{r repeticiones}
+#Escribe aquí tu código
+#No olvides añadir un párrafo después para tus observaciones y justificación
+```
+
+## Problema 3
+Crea una función que normalice la suma de $n$ variables aleatorias independientes $Poisson(\lambda)$ y genere $r$ muestras de esta normalización. Después, usando la misma $lambda$ que en los problemas anteriores, toma los cinco valores para $n$ que usamos antes y grafica para cada uno el histograma de normalización.
+
+```{r histograma}
+#Escribe aquí tu código
+
+```
+
