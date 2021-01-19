@@ -1,0 +1,48 @@
+---
+title: "Ejercicios de programación para tarea 8"
+author: "Zyanya Tanahara"
+date: "1/18/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Ejercicio 1.
+Crea una función que te devuelva el promedio de n números y les reste $n*a$ cuando se especifica el valor de $a$. Da tres evaluaciones.
+```{r}
+
+```
+
+## Ejercicio 2.
+Crea una función que te dé el promedio de una muestra aleatoria con repetición de $r$ números $x$ tales que $x \in \{0,1,2,\ldots, n\}$. En caso de no especificar valor, la función toma automáticamente 10 muestras. Da tres evaluaciones.
+```{r}
+
+```
+
+## Ejercicio 3.
+Crea una función que devuelva el promedio de $n$ variables aleatorias independientes $exp(\lambda)$ y genere $r$ muestras de este promedio. Si no se especifica, la función evalúa en $\lambda = 1$.
+```{r}
+
+```
+
+
+## Ejercicio 4.
+Crea una función que normalice la suma de $n$ variables aleatorias independientes $exp(\lambda)$ y genere $r$ muestras de esta normalización. Si no se especifica, la función evalúa en $\lambda = 1$.
+```{r}
+
+```
+Evalúa la función anterior en $n=50$, $r=1000$
+```{r}
+x <- norm_exp(50, r=10000)
+```
+Escribe un código que le dé sentido a los datos encontrados.
+```{r}
+hist(x, freq = FALSE,  
+     main ="Histograma de normalización de ",
+     ylab = "Densidad")
+    x<-seq(-4,+4,by=0.02)
+    curve(dnorm(x), col="red",lwd=2, add=TRUE)
+```
+
