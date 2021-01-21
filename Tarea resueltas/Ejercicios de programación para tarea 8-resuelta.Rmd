@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Ejercicio 1.
 Crea una función que te devuelva el promedio de n números y les reste $n*a$ cuando se especifica el valor de $a$. Da tres evaluaciones.
 ```{r}
-prom_resta <- function(x,a) {
+prom_resta <- function(x,a){
   mean(x)-length(x)*a
 }
 ```
@@ -20,31 +20,73 @@ prom_resta <- function(x,a) {
 ## Ejercicio 2.
 Crea una función que te dé el promedio de una muestra aleatoria con repetición de $r$ números $x$ tales que $x \in \{0,1,2,\ldots, n\}$. En caso de no especificar valor, la función toma automáticamente 10 muestras. Da tres evaluaciones.
 ```{r}
-
+prom_sample <- function(r=10, n){
+  mean(sample(0:n,r, replace= TRUE))
+}
 ```
 
 ## Ejercicio 3.
 Crea una función que devuelva el promedio de $n$ variables aleatorias independientes $exp(\lambda)$ y genere $r$ muestras de este promedio. Si no se especifica, la función evalúa en $\lambda = 1$.
 ```{r}
+prom_rep_exp <- function(n, lambda=1, r){
+   realizaciones <- vector()
+  for (i in 1:r) {
+    i <- mean(rexp(n,lambda))
+    realizaciones <- c(realizaciones,i)
+  }
+  realizaciones
 
+}
 ```
+
 
 
 ## Ejercicio 4.
 Crea una función que normalice la suma de $n$ variables aleatorias independientes $exp(\lambda)$ y genere $r$ muestras de esta normalización. Si no se especifica, la función evalúa en $\lambda = 1$.
 ```{r}
-
+norm_exp <- function(n,lambda=1,r){
+  
+  esp <- n*(1/lambda)
+  sd <- sqrt(n*(1/(lambda)^2))
+  realizaciones <- vector()
+  for (i in 1:r) {
+    i <- (sum(rexp(n,lambda))-esp)/sd
+    realizaciones <- c(realizaciones,i)
+  }
+  realizaciones
+  
+}
 ```
 Evalúa la función anterior en $n=50$, $r=1000$
 ```{r}
-x <- norm_exp(50, r=10000)
+x1 <- norm_exp(50, r=10000)
+x2 <- norm_exp(1000, r=10000)
+x3 <- norm_exp(10000, r=10000)
 ```
 Escribe un código que le dé sentido a los datos encontrados.
 ```{r}
-hist(x, freq = FALSE,  
+hist(x1, freq = FALSE,  
      main ="Histograma de normalización de ",
      ylab = "Densidad")
     x<-seq(-4,+4,by=0.02)
     curve(dnorm(x), col="red",lwd=2, add=TRUE)
+```
+
+```{r}
+hist(x2, freq = FALSE,  
+     main ="Histograma de normalización de ",
+     ylab = "Densidad")
+    x<-seq(-4,+4,by=0.02)
+    curve(dnorm(x), col="red",lwd=2, add=TRUE)
+
+```
+
+```{r}
+hist(x3, freq = FALSE,  
+     main ="Histograma de normalización de ",
+     ylab = "Densidad")
+    x<-seq(-4,+4,by=0.02)
+    curve(dnorm(x), col="red",lwd=2, add=TRUE)
+
 ```
 
